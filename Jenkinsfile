@@ -12,7 +12,7 @@ stage('Clone Simple API on VM2') {
                 script {
                     // Remove existing directory before cloning
                     sh """
-                        ssh -o StrictHostKeyChecking=no ${VM2_SSH} 'rm -rf /path/to/simple-api || true'
+                        ssh -o StrictHostKeyChecking=no ${VM2_SSH} 'rm -rf /path/to/simple-api/* /path/to/simple-api/.* || true'
                         ssh -o StrictHostKeyChecking=no ${VM2_SSH} 'git clone --branch main https://github.com/yourusername/simple-api.git /path/to/simple-api'
                     """
                 }
