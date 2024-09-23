@@ -27,7 +27,7 @@ pipeline {
                     // Run unit tests on VM2
                     sshagent([VM2_SSH_CREDENTIALS]) {
                         sh """
-                            ssh -o StrictHostKeyChecking=no now@${VM2_HOST} 'cd /path/to/simple-api && pip install -r requirements.txt && pytest test/'
+                            ssh -o StrictHostKeyChecking=no now@${VM2_HOST} 'cd /path/to/simple-api && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && pytest test/'
                         """
                     }
                 }
