@@ -7,12 +7,12 @@ pipeline {
     }
 
     stages {
-stage('Clone Simple API on VM2') {
+        stage('Clone Simple API on VM2') {
             steps {
                 script {
                     // Remove existing directory before cloning
                     sh """
-                        ssh -o StrictHostKeyChecking=no ${VM2_SSH} 'rm -rf /path/to/simple-api/* /path/to/simple-api/.* || true'
+                        ssh -o StrictHostKeyChecking=no ${VM2_SSH} 'sudo rm -rf /path/to/simple-api/* /path/to/simple-api/.* || true'
                         ssh -o StrictHostKeyChecking=no ${VM2_SSH} 'git clone --branch main https://github.com/ChatthawanSk/simple-api-jenkin.git /path/to/simple-api'
                     """
                 }
