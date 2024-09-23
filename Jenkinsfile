@@ -12,7 +12,7 @@ pipeline {
                 script {
                     // Remove existing directory before cloning
                     sh """
-                        ssh -o StrictHostKeyChecking=no ${VM2_SSH} 'sudo rm -rf /path/to/simple-api/* /path/to/simple-api/.* || true'
+                        ssh -o StrictHostKeyChecking=no now@192.168.1.43 'rm -rf /path/to/simple-api/* /path/to/simple-api/.* 2>/dev/null || true'
                         ssh -o StrictHostKeyChecking=no ${VM2_SSH} 'git clone --branch main https://github.com/ChatthawanSk/simple-api-jenkin.git /path/to/simple-api'
                     """
                 }
